@@ -43,6 +43,7 @@
     "comma-dangle": ["error", "only-multiline"],
     "linebreak-style": "off",
     "operator-linebreak": ["error", "after"],
+    "no-param-reassign": 0,
     "template-curly-spacing": "off",
     "indent": "off"
   }
