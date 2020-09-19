@@ -42,6 +42,8 @@
     "object-curly-newline": "off",
     "comma-dangle": ["error", "only-multiline"],
     "linebreak-style": "off",
-    "operator-linebreak": ["error", "after"]
+    "operator-linebreak": ["error", "after"],
+    "template-curly-spacing": "off",
+    "indent": "off"
   }
 }
