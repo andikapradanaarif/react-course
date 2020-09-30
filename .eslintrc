@@ -32,8 +32,6 @@
     "react/display-name": [0, { "ignoreTranspilerName": true }],
     "no-console": ["warn"],
     "max-len": ["warn", 120],
-    "no-unused-vars": "off",
-    "no-mixed-spaces-and-tabs": 0,
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
     "react/react-in-jsx-scope": "off",
@@ -45,6 +43,7 @@
     "operator-linebreak": ["error", "after"],
     "no-param-reassign": 0,
     "template-curly-spacing": "off",
-    "indent": "off"
+    "indent": "off",
+    "import/no-cycle": [0]
   }
 }
