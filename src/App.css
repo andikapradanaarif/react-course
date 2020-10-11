@@ -1,3 +1,18 @@
 .App {
   text-align: center;
 }
+
+.header {
+  background-color: green;
+}
+
+.menu {
+  display: inline-block;
+  padding: 20px;
+  color: white;
+}
+
+.menu:hover {
+  background-color: white;
+  color: green;
+}
