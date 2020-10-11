@@ -3,16 +3,16 @@
 }
 
 .header {
-  margin: auto;
   background-color: green;
 }
+
 .menu {
-  cursor: pointer;
   display: inline-block;
   padding: 20px;
   color: white;
 }
+
 .menu:hover {
-  color: green;
   background-color: white;
+  color: green;
 }

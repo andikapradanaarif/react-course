@@ -1,19 +1,21 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import './App.css';
 import { Route, Switch, BrowserRouter, Redirect } from 'react-router-dom';
 import Header from './header';
-import routes from './config/routes';
+import routes from './config/route';
 
-const isUserAuthenticated = false;
+const isUserAuthenticated = true;
 
-const PrivateRoute = ({ component: Component }) => {
+const PrivateRoute = ({ component: Component, ...rest }) => {
   return (
     <Route
+      {...rest}
       render={() => {
         if (isUserAuthenticated) {
           return <Component />;
         }
-        return <Redirect to="/home" />;
+        return <Redirect to="/login" />;
       }}
     />
   );
