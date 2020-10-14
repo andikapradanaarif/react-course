@@ -1,14 +1,16 @@
-import { Home, Profile, Contact } from '../pages';
+import { Home, Profile, Contact, Login, ProfileId } from '../pages';
 
 const routes = [
-  // private Route
+  {
+    path: '/profile/:profileId',
+    component: ProfileId,
+    isPublic: false,
+  },
   {
     path: '/profile',
     component: Profile,
     isPublic: false,
   },
-
-  // Public Route
   {
     path: '/contact',
     component: Contact,
@@ -19,6 +21,12 @@ const routes = [
     component: Home,
     isPublic: true,
   },
+  {
+    path: '/login',
+    component: Login,
+    isPublic: true,
+  },
+
   {
     path: '/',
     component: Home,
