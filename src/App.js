@@ -3,7 +3,7 @@ import React from 'react';
 import './App.css';
 import { Route, Switch, BrowserRouter, Redirect } from 'react-router-dom';
 import Header from './header';
-import routes from './config/route';
+import routes from './config/routes';
 
 const isUserAuthenticated = true;
 
