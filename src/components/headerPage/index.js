@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import cookie from '../../utils/cookie';
 
 const Header = () => {
   const listMenu = ['home', 'profile', 'contact', 'infoCorona'];
@@ -12,6 +13,7 @@ const Header = () => {
           </Link>
         );
       })}
+      {cookie.isUserAuthenticated() ? <span>logout</span> : <div />}
     </div>
   );
 };
