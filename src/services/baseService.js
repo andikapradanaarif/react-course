@@ -1,9 +1,9 @@
 import axios from 'axios';
-import { getCookie, setCookie } from '../utils/cookie';
+import { getCookie } from '../utils/cookie';
 
 function getTokenAuth() {
-  if (getCookie('token') !== '' && getCookie('userData') !== '') {
-    return JSON.parse(getCookie('token'));
+  if (getCookie('token') && getCookie('userData')) {
+    return JSON.parse(getCookie('token')).value;
   }
   return '';
 }
@@ -18,14 +18,12 @@ const createAxiosInterceptor = (url) => {
       Authorization: `Bearer ${getTokenAuth()}`,
     },
   });
-
   axiosCreate.interceptors.response.use(
     (response) => {
       return response.data;
     },
     (error) => {
       if (error.response.status === 401) {
-        setCookie('userData', '');
         window.location.replace('/');
       }
       return Promise.reject(error);

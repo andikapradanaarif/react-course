@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { setCookie } from '../../utils/cookie';
-import { auth } from '../../services';
+import { authService } from '../../services';
 
 const Login = () => {
   const [username, setUsername] = useState('');
@@ -10,7 +10,7 @@ const Login = () => {
 
   const onSubmitLogin = () => {
     setLoginLoading(true);
-    auth
+    authService
       .login(username, password)
       .then((res) => {
         const cookieToken = res.data.token;
