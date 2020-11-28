@@ -1,23 +1,20 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import { setCookie } from '../../utils/cookie';
+import { auth } from '../../services';
 
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
   const [isLoginLoading, setLoginLoading] = useState(false);
-  const loginAPIUrl = `${process.env.REACT_APP_API}/auth/login`;
+
   const onSubmitLogin = () => {
     setLoginLoading(true);
-    axios
-      .post(loginAPIUrl, {
-        email: username,
-        password,
-      })
+    auth
+      .login(username, password)
       .then((res) => {
-        const cookieToken = res.data.data.token;
-        const cookieUser = res.data.data.user;
+        const cookieToken = res.data.token;
+        const cookieUser = res.data.user;
         setCookie('userData', JSON.stringify(cookieUser), 10000);
         setCookie('token', JSON.stringify(cookieToken), 10000);
       })

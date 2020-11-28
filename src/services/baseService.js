@@ -2,8 +2,8 @@ import axios from 'axios';
 import { getCookie, setCookie } from '../utils/cookie';
 
 function getTokenAuth() {
-  if (getCookie('userData') !== '' && getCookie('userData') !== 'undefined') {
-    return JSON.parse(getCookie('userData')).data.token.value;
+  if (getCookie('token') !== '' && getCookie('userData') !== '') {
+    return JSON.parse(getCookie('token'));
   }
   return '';
 }
@@ -35,6 +35,6 @@ const createAxiosInterceptor = (url) => {
   return axiosCreate;
 };
 
-const BaseService = createAxiosInterceptor(process.env.REACT_APP_REST_URL);
+const BaseService = createAxiosInterceptor(process.env.REACT_APP_API);
 
 export default BaseService;
