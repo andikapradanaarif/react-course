@@ -4,14 +4,14 @@ import './App.css';
 import { Route, Switch, BrowserRouter, Redirect } from 'react-router-dom';
 import { HeaderPage } from './components';
 import routes from './config/routes';
-import cookie from './utils/cookie';
+import { isUserAuthenticated } from './utils/cookie';
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
   return (
     <Route
       {...rest}
       render={() => {
-        if (cookie.isUserAuthenticated()) {
+        if (isUserAuthenticated()) {
           return <Component />;
         }
         return <Redirect to="/login" />;

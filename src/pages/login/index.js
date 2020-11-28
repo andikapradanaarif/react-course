@@ -1,25 +1,25 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import cookie from '../../utils/cookie';
+import { setCookie } from '../../utils/cookie';
 
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
   const [isLoginLoading, setLoginLoading] = useState(false);
-
+  const loginAPIUrl = `${process.env.REACT_APP_API}/auth/login`;
   const onSubmitLogin = () => {
     setLoginLoading(true);
     axios
-      .post('https://dev.api.etalasy.com/v1/auth/login', {
+      .post(loginAPIUrl, {
         email: username,
         password,
       })
       .then((res) => {
         const cookieToken = res.data.data.token;
         const cookieUser = res.data.data.user;
-        cookie.setCookie('userData', JSON.stringify(cookieUser), 10000);
-        cookie.setCookie('token', JSON.stringify(cookieToken), 10000);
+        setCookie('userData', JSON.stringify(cookieUser), 10000);
+        setCookie('token', JSON.stringify(cookieToken), 10000);
       })
       .catch((err) => {
         console.log(err);

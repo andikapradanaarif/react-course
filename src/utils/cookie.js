@@ -26,4 +26,4 @@ const isUserAuthenticated = () => {
   return false;
 };
 
-export default { isUserAuthenticated, getCookie, setCookie };
+export { isUserAuthenticated, getCookie, setCookie };
